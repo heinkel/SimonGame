@@ -55,27 +55,28 @@ $(".btn").click(function(event){
         clickHandler(event.target.id);
         if (gamePattern[gameMove] != userClickedPattern[gameMove])
             Missed();
+        else {
         gameMove++;
-        if (gameMove === gamePattern.length)
+        if (gameMove === gamePattern.length) // this means user choices were right and time to level up
             nextSequence();
+        }
     }
 
 });
 
-//Keypressed Detection
-
+//Keypressed Detection CALL GAME START
 $(document).keypress(function(){
    gameStarts();
 });
 
-function gameStarts(){ // Inic the game after pressing a key goes to level 0.
+function gameStarts(){ // Inic the game after pressing a key only if level 0.
     if (level === 0){
         gamePattern = [];
-        nextSequence();
+        nextSequence(); //first sequence of the game
     }
 }
 
-function Missed(){
+function Missed(){   // GAME OVER FUNCTION RESET SOME CONFIGURATION AND LOCKS THE GAME TO NEXT PRESKEY TO RESTART
     playSound("wrong");
     $("h1").text("Game Over");
     level = 0;
