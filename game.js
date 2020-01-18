@@ -69,7 +69,7 @@ $(document).keypress(function(){
    gameStarts();
 });
 
-$(document).on("tap",function(){  // Mobile start event
+$("#start").click("tap",function(){  // Mobile start event
     gameStarts();
  });
 
