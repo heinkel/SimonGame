@@ -69,6 +69,12 @@ $(document).keypress(function(){
    gameStarts();
 });
 
+$(document).on("tap",function(){  // Mobile start event
+    gameStarts();
+ });
+
+
+
 function gameStarts(){ // Inic the game after pressing a key only if level 0.
     if (level === 0){
         gamePattern = [];
